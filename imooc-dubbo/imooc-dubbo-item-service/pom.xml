@@ -143,6 +143,13 @@
 		<finalName>imooc-dubbo-item-service</finalName>
 
 		<resources>
+			<!--注意这里：需要将src/main/java所有东西拷贝到classes中，其中xml包含进去-->
+			<resource>
+				<targetPath>${project.build.directory}/classes</targetPath>
+				<directory>src/main/java</directory>
+			</resource>
+
+			<!--下面这个表示：目录src/main/resources中所有xml和properties文件拷贝到classes目录中,并且采用了过滤-->
 			<resource>
 				<targetPath>${project.build.directory}/classes</targetPath>
 				<directory>src/main/resources</directory>
@@ -222,7 +229,7 @@
 						<configuration>
 							<type>jar</type>
 							<includeTypes>jar</includeTypes>
-							<useUniqueVersions>false</useUniqueVersions>
+							<useBaseVersion>false</useBaseVersion>
 							<outputDirectory>
 								${project.build.directory}/lib
 							</outputDirectory>
